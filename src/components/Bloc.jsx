@@ -4,22 +4,49 @@ import { useState } from "react";
 export default function Bloc(){
 
     const [title, setTitle] = useState("Hola");
+    const [notas, setNotas] = useState([]);
 
-    function handleClick(e){
+
+    function handleChange(event){
+        const value = event.target.value;
+
+        setTitle(value);
+    }
+
+    function handleSubmit(e){
         e.preventDefault();
-        setTitle('Adriel');
+
+        const newNota = {
+            id: crypto.randomUUID(),
+            title: title,
+            completed: false,
+        };
+
+        const temp = [...notas];
+        temp.unshift(newNota);
+
+        setNotas(temp);
     }
     return(
         <div className="container">
-            <form className="form">
-                <input className="input" value={title}></input>
+            <form className="form" onSubmit={handleSubmit}>
+                <input 
+                    onChange={handleChange} 
+                    className="input" 
+                    placeholder="Ingresar tarea">
+                </input>
                 <input
-                onClick={handleClick}
-                type="submit" 
-                value="Guardar" 
-                className="buttonGuardar">
+                    onClick={handleSubmit}
+                    type="submit" 
+                    value="Guardar" 
+                    className="buttonGuardar">
                 </input>
             </form>
+            <div className="notasContainer">
+                {notas.map((item) => (
+                    <div>{item.title}</div>
+                ))}
+            </div>
         </div>
         
     );
