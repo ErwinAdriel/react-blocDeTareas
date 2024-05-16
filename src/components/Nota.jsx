@@ -1,21 +1,52 @@
 import { useState } from "react";
 
-export default function Nota({item}){
+export default function Nota({item, onUpdate}){
 
     const[isEdit, setIsEdit] = useState(false);
 
+    function FormEdit(){
+
+        const [newValue, setNewValue] = useState(item.title)
+        
+        function handleSubmit(e){
+            e.prevenDefault();
+        }
+
+        function handleChange(e){
+            const value = e.target.value;
+            setNewValue(value);
+        }
+        
+        function handleClickUpdate(){
+            onUpdate(item.id, newValue);
+            setIsEdit(false);
+        }
+        return(
+            <form className="updateForm" onSubmit={handleSubmit}>
+                <input 
+                    type="text" 
+                    className="input" 
+                    onChange={handleChange} 
+                    value={newValue}>
+                    </input>
+                <button className="btnActualizar" onClick={handleClickUpdate}>Actualizar</button>
+            </form>
+        );
+    }
+
+    function TodoElement(){
+        return(
+            <div>
+                {item.title}
+                <button onClick={() => setIsEdit(true)}> Editar</button>
+                <button>Eliminar</button>
+            </div>
+        )
+    }
 
     return(
         <div className="todo">
-            {isEdit ? (
-                <div>Modo editar</div>    
-            ) : (
-                <div>
-                    {item.title}
-                    <button onClick={() => setIsEdit(true)}> Editar</button>
-                    <button>Eliminar</button>
-                </div>
-            )}
+            {isEdit ? <FormEdit/> : <TodoElement/>}
         </div>
         
     );

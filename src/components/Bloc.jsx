@@ -28,6 +28,13 @@ export default function Bloc(){
 
         setNotas(temp);
     }
+
+    function handleUpdate(id, value){
+        const temp = [...notas];
+        const item = temp.find((item) => item.id === id);
+        item.title = value;
+        setNotas(temp);
+    }
     return(
         <div className="container">
             <form className="form" onSubmit={handleSubmit}>
@@ -45,7 +52,7 @@ export default function Bloc(){
             </form>
             <div className="notasContainer">
                 {notas.map((item) => (
-                    <Nota key={item.id} item={item}/>
+                    <Nota key={item.id} item={item} onUpdate={handleUpdate}/>
                 ))}
             </div>
         </div>
