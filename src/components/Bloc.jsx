@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Nota from "./Nota";
 
 
 export default function Bloc(){
@@ -44,7 +45,7 @@ export default function Bloc(){
             </form>
             <div className="notasContainer">
                 {notas.map((item) => (
-                    <div>{item.title}</div>
+                    <Nota key={item.id} item={item}/>
                 ))}
             </div>
         </div>
