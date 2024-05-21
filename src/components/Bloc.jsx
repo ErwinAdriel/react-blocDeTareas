@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Nota from "./Nota";
-
+import './Bloc.css';
 
 export default function Bloc(){
 
@@ -45,10 +45,11 @@ export default function Bloc(){
 
     return(
         <div className="container">
+            <h1 className="center">Bloc de tareas</h1>
             <form className="form" onSubmit={handleSubmit}>
                 <input 
                     onChange={handleChange} 
-                    className="input"
+                    className="inputTitle"
                     placeholder="Ingresar tarea"
                     value={title}>
                 </input>
@@ -56,7 +57,7 @@ export default function Bloc(){
                     onClick={handleSubmit}
                     type="submit" 
                     value="Guardar" 
-                    className="buttonGuardar">
+                    className="btnGuardar">
                 </input>
             </form>
             <div className="notasContainer">

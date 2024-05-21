@@ -1,0 +1,59 @@
+*{
+    background-color: #282c34;
+    color: #fff;
+}
+
+.center{
+    text-align: center;
+}
+
+.container{
+    width: 25rem;
+    border: 1px solid #000;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.form{
+    display: flex;
+    gap: 5px;
+}
+
+.inputTitle{
+    flex-grow: 1;
+    width: 100%;
+    border-radius: 5px;
+    padding: 10px;
+    border: solid 1px #999;
+}
+
+.btnGuardar{
+    border: none;
+    background-color: rgb(26, 76, 169);
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px 20px;
+}           
+
+.notasContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.todo{
+    padding: 3px;
+}
+.todoTitle{
+    flex: 1;
+    font-size: 20px;
+}
+
+.todoInfo,
+.updateForm{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}

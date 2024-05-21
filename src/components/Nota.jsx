@@ -36,10 +36,10 @@ export default function Nota({item, onUpdate, onDelete}){
 
     function TodoElement(){
         return(
-            <div>
-                {item.title}
-                <button onClick={() => setIsEdit(true)}> Editar</button>
-                <button onClick={(e) => onDelete(item.id)}>Eliminar</button>
+            <div className="todoInfo">
+                <span className="todoTitle">{item.title}</span>
+                <button className="btnUpdate" onClick={() => setIsEdit(true)}> Editar</button>
+                <button className="btnDelete" onClick={(e) => onDelete(item.id)}>Eliminar</button>
             </div>
         )
     }
