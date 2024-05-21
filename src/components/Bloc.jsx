@@ -4,7 +4,7 @@ import Nota from "./Nota";
 
 export default function Bloc(){
 
-    const [title, setTitle] = useState("Hola");
+    const [title, setTitle] = useState("");
     const [notas, setNotas] = useState([]);
 
 
@@ -27,6 +27,7 @@ export default function Bloc(){
         temp.unshift(newNota);
 
         setNotas(temp);
+        setTitle('');
     }
 
     function handleUpdate(id, value){
@@ -35,13 +36,21 @@ export default function Bloc(){
         item.title = value;
         setNotas(temp);
     }
+
+    function handleDelete(id){
+        const temp = notas.filter((item) => item.id !== id);
+        
+        setNotas(temp);
+    }
+
     return(
         <div className="container">
             <form className="form" onSubmit={handleSubmit}>
                 <input 
                     onChange={handleChange} 
-                    className="input" 
-                    placeholder="Ingresar tarea">
+                    className="input"
+                    placeholder="Ingresar tarea"
+                    value={title}>
                 </input>
                 <input
                     onClick={handleSubmit}
@@ -52,7 +61,7 @@ export default function Bloc(){
             </form>
             <div className="notasContainer">
                 {notas.map((item) => (
-                    <Nota key={item.id} item={item} onUpdate={handleUpdate}/>
+                    <Nota key={item.id} item={item} onUpdate={handleUpdate} onDelete={handleDelete}/>
                 ))}
             </div>
         </div>

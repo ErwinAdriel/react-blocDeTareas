@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Nota({item, onUpdate}){
+export default function Nota({item, onUpdate, onDelete}){
 
     const[isEdit, setIsEdit] = useState(false);
 
@@ -39,7 +39,7 @@ export default function Nota({item, onUpdate}){
             <div>
                 {item.title}
                 <button onClick={() => setIsEdit(true)}> Editar</button>
-                <button>Eliminar</button>
+                <button onClick={(e) => onDelete(item.id)}>Eliminar</button>
             </div>
         )
     }
