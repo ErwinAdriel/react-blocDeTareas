@@ -25,7 +25,7 @@ export default function Nota({item, onUpdate, onDelete}){
             <form className="updateForm" onSubmit={handleSubmit}>
                 <input 
                     type="text" 
-                    className="input" 
+                    className="inputEdit" 
                     onChange={handleChange} 
                     value={newValue}>
                     </input>
@@ -37,7 +37,7 @@ export default function Nota({item, onUpdate, onDelete}){
     function TodoElement(){
         return(
             <div className="todoInfo">
-                <span className="todoTitle">{item.title}</span>
+                <span className="todoTitle">• {item.title}</span>
                 <button className="btnUpdate" onClick={() => setIsEdit(true)}> Editar</button>
                 <button className="btnDelete" onClick={(e) => onDelete(item.id)}>Eliminar</button>
             </div>

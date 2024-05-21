@@ -9,8 +9,7 @@
 
 .container{
     width: 25rem;
-    border: 1px solid #000;
-    margin: 100px auto;
+    margin: 50px auto;
     display: flex;
     flex-direction: column;
 }
@@ -30,11 +29,15 @@
 
 .btnGuardar{
     border: none;
-    background-color: rgb(26, 76, 169);
+    background-color: #28a745    ;
     cursor: pointer;
     border-radius: 5px;
     padding: 10px 20px;
 }           
+
+.btnGuardar:hover{
+    opacity: 0.5;
+}
 
 .notasContainer{
     display: flex;
@@ -56,4 +59,47 @@
     display: flex;
     align-items: center;
     gap: 5px;
+}
+
+.btnUpdate{
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(26, 76, 169);
+    padding: 10px;
+    cursor: pointer;
+}
+
+.btnUpdate:hover{
+    opacity: 0.5
+}
+
+.btnDelete{
+    border: none;
+    border-radius: 5px;
+    background-color: #dc3545    ;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.btnDelete:hover{
+    opacity: 0.5
+}
+
+.inputEdit{
+    border: 1px solid rgb(26, 76, 169);
+    width: 53%;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.btnActualizar{
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(26, 76, 169);
+    padding: 8px;
+    cursor: pointer;
+}
+
+.btnActualizar:hover{
+    opacity: 0.5
 }
